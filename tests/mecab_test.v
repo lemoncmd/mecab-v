@@ -6,4 +6,6 @@ fn test_tagged_result() ! {
 	result := m.parse_str_tostr(input)!
 	println(input)
 	println(result)
+	result2 := m.nbest_parse_str_tostr(3, input)!
+	println(result2)
 }

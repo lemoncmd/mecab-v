@@ -31,7 +31,8 @@ pub struct MeCabConfig {
 
 // create new MeCab tagger object
 pub fn MeCab.new(config MeCabConfig) !MeCab {
-	args := config.args.map(it.str)
+	mut args := config.args.map(it.str)
+	args.insert(0, ''.str)
 	m := MeCab{C.mecab_new(args.len, &args[0])}
 	if isnil(m.mecab) {
 		return error(m.strerror())
